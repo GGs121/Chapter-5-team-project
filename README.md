@@ -1,16 +1,17 @@
 # Program Name
 Gage , Alex
 
-## <program_name> Description
+## <Number Guessing Game> Description
 takes two inputs for names of the players and then generates a random number then the players take turns guessing the number 
 
 ### <program_name> Flowchart
 ```mermaid
 graph TD;
-  A-->B;
-  A-->C;
-  A-->D;
-  A-->E;
+  Main-->Menu;
+  Main-->Get random;
+  Main-->plyaer 1;
+  Main-->player 2;
+  Main-->Exit
 ```
 
 #### Function Diagrams
