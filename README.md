@@ -1,8 +1,8 @@
 # Program Name
-Team member 1, Team member 2, Team member 3
+Gage , Alex
 
 ## <program_name> Description
-Here is where you describe what the program does
+takes two inputs for names of the players and then generates a random number then the players take turns guessing the number 
 
 ### <program_name> Flowchart
 ```mermaid
