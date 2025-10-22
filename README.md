@@ -8,9 +8,9 @@ takes two inputs for names of the players and then generates a random number the
 ```mermaid
 graph TD;
   Main-->Menu;
-  Main-->Get random;
-  Main-->plyaer 1;
-  Main-->player 2;
+  Main-->Get_random;
+  Main-->plyaer_1;
+  Main-->player_2;
   Main-->Exit
 ```
 
