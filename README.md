@@ -9,7 +9,7 @@ takes two inputs for names of the players and then generates a random number the
 graph TD;
   Main-->Menu;
   Main-->Get_random;
-  Main-->plyaer_1;
+  Main-->player_1;
   Main-->player_2;
   Main-->Exit
 ```
