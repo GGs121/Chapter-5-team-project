@@ -1,8 +1,6 @@
 import random
 
 
-    
-    
 def main():
     
     continue_program = "y"
@@ -70,7 +68,6 @@ def play_game(player1, player2, secret_number):
         if guess == secret_number:
             print(f"\n {player1} wins!")
             print(f"{player1} took {attempts_p1} turns.")
-            print(f"{player2} took {attempts_p2} turns.")
             print(f"Total turns: {total_turns}")
             break
         elif guess < secret_number:
@@ -84,9 +81,8 @@ def play_game(player1, player2, secret_number):
         total_turns += 1
         if guess == secret_number:
             print(f"\n{player2} wins!")
-            print(f"{player2} took {attempts_p2} turns.")
             print(f"{player1} took {attempts_p1} turns.")
-            print(f"Total turns: {total_turns}")
+            print(f"Total turns in the game: {total_turns}")
             break
         elif guess < secret_number:
             print("Too low!")
