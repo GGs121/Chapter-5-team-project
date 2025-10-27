@@ -1,54 +1,96 @@
-def main():
-    
-    def menu():
+import random
+
 
     
-        if choice == 1:
-            
-            getnames()
-            start_new_game()
-        elif choice == 2:
-            
-            setrang()
+    
+def main():
+    
+    continue_program = "y"
+    min_val = 1 #set default min and max value
+    max_val = 1000
+
+
+
+    while continue_program.lower() == "y": #menu
+        print("--- Number Guessing Game ---")
+        print("1. Start New Game")
+        print("2. Choose Range")
+        print("3. Exit")
+        
+        choice = input(":> ")
+
+        if choice == "1":
+            player1, player2 = get_player_names()
+            secret_number = generate_num(min_val, max_val)
+            play_game(player1, player2, secret_number)
+
+        elif choice == "2":
+            min_val = int(input("Enter the minimum value: "))
+            max_val = int(input("Enter the maximum value: "))
+            print(f"Range is now {min_val} and {max_val}")
+
+        elif choice == "3":
+            print("Thank you for playing")
+            break
+
         else:
-            stopfunc()
-        
+            print("Please choose a valid menu option.")
+            
+        continue_program = input("Would you like to return to the main menu? (y/n): ")
+        print("Thank you for playing!")
+
+
+
+
+def get_player_names(): #get_player_names accepts no arguements
+    #has user input their names and stroes them in variables
     
-        
-    menu()
+    player1 = input("Enter Player 1's name: ")
+    player2 = input("Enter Player 2's name: ")
+    return player1, player2
     
-def start_new_game(minrange, maxrange, name1, name2, randnum):
-    win = 1
-    totalturns = 0
-    while win == 1:
-        player1g = int(input('\n',name1,'guees your number inbetween',minrange, 'and', maxrange))
-        
-        if player1g == randnum:
-            print('WINNER!!!')
-            win = 0
-        if player1g > randum:
-            print('guess lower')
-            print()
-            
-        if player1g < randum:
-            print('guess higher')
-            print()
-            
-        player2g = int(input('\n',name2,'guees your number inbetween',minrange, 'and', maxrange))
-        
-        if player2g == randnum:
-            print('WINNER!!!')
-            win = 0
-            
-        if player2g > randum:
-            print('guess lower')
-            print()
-            
-        if player2g < randum:
-            print('guess higher')
-            print()
-            
-        totalturns = totalturns + 1
-        print('TURN COUNT: ',totalturns)
-        
+
+def generate_num(min_val, max_val): #generate num accepts two arguements which are min_val and max_val
+    #generate the secret number for player to guess 
+    secret_number = random.randint(min_val, max_val)
+    return secret_number
+    
+
+def play_game(player1, player2, secret_number):
+    
+    attempts_p1 = 0 #set player 1's turns
+    attempts_p2 = 0 #set player 2 turns
+    total_turns = 0 #set total turns
+
+    while True:
+        # player 1's turn
+        guess = int(input(f"{player1}, enter your guess: "))
+        attempts_p1 += 1
+        total_turns += 1
+        if guess == secret_number:
+            print(f"\n {player1} wins!")
+            print(f"{player1} took {attempts_p1} turns.")
+            print(f"{player2} took {attempts_p2} turns.")
+            print(f"Total turns: {total_turns}")
+            break
+        elif guess < secret_number:
+            print("Too low!")
+        else:
+            print("Too high!")
+
+        # player 2's turn
+        guess = int(input(f"{player2}, enter your guess: "))
+        attempts_p2 += 1
+        total_turns += 1
+        if guess == secret_number:
+            print(f"\n{player2} wins!")
+            print(f"{player2} took {attempts_p2} turns.")
+            print(f"{player1} took {attempts_p1} turns.")
+            print(f"Total turns: {total_turns}")
+            break
+        elif guess < secret_number:
+            print("Too low!")
+        else:
+            print("Too high!")
+
 main()
