@@ -9,33 +9,39 @@ def main():
 
 
 
-    while continue_program.lower() == "y": #menu
-        print("--- Number Guessing Game ---")
-        print("1. Start New Game")
-        print("2. Choose Range")
-        print("3. Exit")
-        
-        choice = input(":> ")
-
-        if choice == "1":
-            player1, player2 = get_player_names()
-            secret_number = generate_num(min_val, max_val)
-            play_game(player1, player2, secret_number)
-
-        elif choice == "2":
-            min_val = int(input("Enter the minimum value: "))
-            max_val = int(input("Enter the maximum value: "))
-            print(f"Range is now {min_val} and {max_val}")
-
-        elif choice == "3":
-            print("Thank you for playing")
-            break
-
-        else:
-            print("Please choose a valid menu option.")
+    if continue_program == 'y': #input validation
+        while continue_program.lower() == "y": #menu
+            print("--- Number Guessing Game ---")
+            print("1. Start New Game")
+            print("2. Choose Range")
+            print("3. Exit")
             
-        continue_program = input("Would you like to return to the main menu? (y/n): ")
-        print("Thank you for playing!")
+            choice = input(":> ")
+            print()
+
+            if choice == "1":
+                player1, player2 = get_player_names()
+                secret_number = generate_num(min_val, max_val)
+                play_game(player1, player2, secret_number, min_val, max_val)
+
+            elif choice == "2":
+                min_val = int(input("Enter the minimum value: "))
+                max_val = int(input("Enter the maximum value: "))
+                print(f"Range is now {min_val} and {max_val}")
+                print()
+
+            elif choice == "3":
+                print("Thank you for playing")
+                break
+
+            else:
+                print("Please choose a valid menu option.")
+                
+            continue_program = input("Would you like to return to the main menu? (y/n): ")
+            print()
+        else:
+            print('thanks for playing')
+
 
 
 
