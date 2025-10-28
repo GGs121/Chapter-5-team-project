@@ -56,37 +56,43 @@ def generate_num(min_val, max_val): #generate num accepts two arguements which a
 
 def play_game(player1, player2, secret_number):
     
+    
     attempts_p1 = 0 #set player 1's turns
     attempts_p2 = 0 #set player 2 turns
     total_turns = 0 #set total turns
-
-    while True:
-        # player 1's turn
-        guess = int(input(f"{player1}, enter your guess: "))
-        attempts_p1 += 1
-        total_turns += 1
-        if guess == secret_number:
-            print(f"\n {player1} wins!")
-            print(f"{player1} took {attempts_p1} turns.")
-            print(f"Total turns: {total_turns}")
+    win = 1 #checks if the number is correct
+    while win == 1:  
+        p1g = int(input(f'{player1} please enter your guess between {min_val} and {max_val}: '))
+        p2g = int(input(f'{player2} please enter your guess between {min_val} and {max_val}: '))
+         
+        if p1g > secret_number:
+            print(player1, 'needs to guess lower')
+            attempts_p1 += 1
+        elif p1g < secret_number:
+            print(player2, 'needs to guess higher')
+            attempts_p1 += 1
+        if p1g == secret_number:
+            print('WINNER!!!')
+            print()
+            print(player1, 'used', attempts_p1, 'turns')
+            print(player2, 'used', attempts_p1, 'turns')
+            print('total turns used', total_turns)
+            print()
             break
-        elif guess < secret_number:
-            print("Too low!")
-        else:
-            print("Too high!")
+            
+        if p2g > secret_number:
+            print(player2, 'needs to guess lower')
+            attempts_p2 += 1
+        elif p2g < secret_number:
+            print(player2, 'needs to guess higher')
+            attempts_p2 += 1
+        if p2g == secret_number:
+            print('WINNER!!!')
+            print()
+            print(player1, 'used', attempts_p1, 'turns')
+            print(player2, 'used', attempts_p1, 'turns')
+            print('total turns used', total_turns)
+            print()
 
-        # player 2's turn
-        guess = int(input(f"{player2}, enter your guess: "))
-        attempts_p2 += 1
-        total_turns += 1
-        if guess == secret_number:
-            print(f"\n{player2} wins!")
-            print(f"{player1} took {attempts_p1} turns.")
-            print(f"Total turns in the game: {total_turns}")
-            break
-        elif guess < secret_number:
-            print("Too low!")
-        else:
-            print("Too high!")
 
 main()
